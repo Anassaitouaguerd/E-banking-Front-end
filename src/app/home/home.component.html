@@ -1,0 +1,57 @@
+<nav class="navbar">
+    <div class="logo">E-bankify</div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#help">Help</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Welcome to E-bankify Online</h1>
+    <p>Manage your finances securely from anywhere, anytime.</p>
+    <button class="loginForm">
+      Login
+    </button>
+    <button class="registerForm">
+      Register
+    </button>
+</section>
+<div>
+  <div class="{{isActive ? 'isActive' : 'isNotActive'}}">
+    <app-login-form></app-login-form>
+  </div>
+  <div class="{{!isActive ? 'isActive' : 'isNotActive'}}">
+    <app-register-form></app-register-form>
+  </div>
+
+</div>
+
+<section class="features">
+    <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h3>Card Management</h3>
+        <p>View and manage all your cards in one place. Set limits, freeze cards, and monitor transactions.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Mobile Banking</h3>
+        <p>Bank on the go with our secure mobile app. Transfer funds and pay bills anywhere.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure Banking</h3>
+        <p>Bank with confidence using our advanced security features and encryption.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Financial Insights</h3>
+        <p>Track your spending patterns and get personalized financial insights.</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 E-bankify. All rights reserved.</p>
+</footer>
+

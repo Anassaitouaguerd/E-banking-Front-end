@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    background-color: #f3f4f6;
+}
+
+.navbar {
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.hero {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(to right, #2563eb, #1e40af);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+}
+
+
+.loginForm{
+    width: 9%;
+    border-radius: 4px;
+    height: 35px;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    border: none;
+    font-weight: bold;
+}
+.registerForm{
+    width: 9%;
+    border-radius: 4px;
+    height: 35px;
+    margin-left: 2em;
+    margin-bottom: 2em;
+    border: none;
+    font-weight: bold;
+}
+
+.loginForm:hover,
+.registerForm:hover {
+    background-color: #2563eb;
+    color: #f3f4f6;
+    border: white;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.isActive{
+    display: block;
+}
+
+.isNotActive{
+    display: none;
+}
+
+footer {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}

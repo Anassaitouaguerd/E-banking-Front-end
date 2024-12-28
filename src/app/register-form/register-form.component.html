@@ -1,0 +1,106 @@
+<!-- register-form.component.html -->
+<section class="login-section">
+    <form class="login-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <!-- Username field -->
+        <div class="form-group">
+            <input 
+                type="text" 
+                formControlName="username"
+                placeholder="Username">
+            <div *ngIf="registerForm.get('username')?.invalid && 
+                       (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)" 
+                 class="error-message">
+                Username is required
+            </div>
+        </div>
+
+        <!-- Password field -->
+        <div class="form-group">
+            <input 
+                type="password" 
+                formControlName="password"
+                placeholder="Password">
+            <div *ngIf="registerForm.get('password')?.invalid && 
+                       (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)" 
+                 class="error-message">
+                Password is required
+            </div>
+        </div>
+
+        <!-- Email field -->
+        <div class="form-group">
+            <input 
+                type="email" 
+                formControlName="email"
+                placeholder="Email">
+            <div *ngIf="registerForm.get('email')?.invalid && 
+                       (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)" 
+                 class="error-message">
+                <div *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</div>
+                <div *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format</div>
+            </div>
+        </div>
+
+        <!-- Birthday field -->
+        <div class="form-group">
+            <input 
+                type="date" 
+                formControlName="birthday">
+            <div *ngIf="registerForm.get('birthday')?.invalid && 
+                       (registerForm.get('birthday')?.dirty || registerForm.get('birthday')?.touched)" 
+                 class="error-message">
+                Birthday is required
+            </div>
+        </div>
+
+        <!-- Monthly Income field -->
+        <div class="form-group">
+            <input 
+                type="number" 
+                formControlName="monthlyIncome"
+                placeholder="Monthly Income">
+            <div *ngIf="registerForm.get('monthlyIncome')?.invalid && 
+                       (registerForm.get('monthlyIncome')?.dirty || registerForm.get('monthlyIncome')?.touched)" 
+                 class="error-message">
+                <div *ngIf="registerForm.get('monthlyIncome')?.errors?.['required']">Monthly income is required</div>
+                <div *ngIf="registerForm.get('monthlyIncome')?.errors?.['min']">Monthly income must be positive</div>
+            </div>
+        </div>
+
+        <!-- Collateral Available field -->
+        <div class="form-group">
+            <select formControlName="collateralAvailable">
+                <option value="">Select Collateral Type</option>
+                <option value="real_estate">Real Estate</option>
+                <option value="vehicle">Vehicle</option>
+                <option value="investments">Investments</option>
+                <option value="other">Other</option>
+            </select>
+            <div *ngIf="registerForm.get('collateralAvailable')?.invalid && 
+                       (registerForm.get('collateralAvailable')?.dirty || registerForm.get('collateralAvailable')?.touched)" 
+                 class="error-message">
+                Collateral is required
+            </div>
+        </div>
+
+        <!-- Customer Since field -->
+        <div class="form-group">
+            <input 
+                type="date" 
+                formControlName="customerSince">
+        </div>
+
+        <!-- Role field -->
+        <div class="form-group">
+            <select formControlName="role">
+                <option value="">Select Role</option>
+                <option value="USER">User</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn" [disabled]="registerForm.invalid">
+            Register with E-bankify
+        </button>
+    </form>
+</section>

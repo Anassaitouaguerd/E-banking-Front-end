@@ -1,0 +1,74 @@
+.login-section {
+    background: white !important;
+    max-width: 400px !important;
+    margin: -80px auto 2rem !important;
+    padding: 2rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+}
+
+
+
+.form-group {
+    margin-bottom: 1rem !important;
+}
+
+.form-group input,
+.form-group select {
+    width: 95% !important;
+    padding: 0.75rem !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    font-size: 1rem !important;
+    transition: border-color 0.3s ease !important;
+}
+
+.form-group select{
+    width: 102% !important;
+
+}
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007bff !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25) !important;
+}
+
+.error-message {
+    color: #dc3545 !important;
+    font-size: 0.875rem !important;
+    margin-top: 0.25rem !important;
+}
+
+.btn {
+    width: 100% !important;
+    padding: 0.75rem !important;
+    background-color: #007bff !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.btn:hover {
+    background-color: #0056b3 !important;
+}
+
+.btn:disabled {
+    background-color: #ccc !important;
+    cursor: not-allowed !important;
+}
+
+/* Specific styling for date inputs */
+input[type="date"] {
+    padding: 0.6rem 0.75rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 1.5rem !important;
+    }
+}
