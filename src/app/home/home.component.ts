@@ -84,7 +84,7 @@ export class HomeComponent {
       localStorage.clear();
       localStorage.setItem('token', data.token);
       if(data.role == 'USER'){
-        window.location.href = 'home';
+        window.location.href = 'user-page';
       }else if(data.role == 'ADMIN'){
         window.location.href = 'dashboard';
         
@@ -94,7 +94,6 @@ export class HomeComponent {
 
   private handleLoginError(error: unknown): void {
     console.error('Login error:', error);
-    // Add error handling logic here (e.g., showing error messages to user)
   }
 
   private handleComponentForms(button: HTMLElement): void {
