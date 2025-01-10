@@ -1,0 +1,96 @@
+<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-gray-500/75 transition-opacity"></div>
+  
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="bg-white px-4 pb-4 pt-5 sm:p-6">
+            <h2 class="text-lg font-semibold mb-4">User Information</h2>
+            
+            <div class="grid grid-cols-1 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" formControlName="username" 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <span *ngIf="userForm.get('username')?.errors?.['required'] && userForm.get('username')?.touched" 
+                      class="text-red-500 text-sm">Username is required</span>
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" formControlName="password" 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <span *ngIf="userForm.get('password')?.errors?.['required'] && userForm.get('password')?.touched" 
+                      class="text-red-500 text-sm">Password is required</span>
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" formControlName="email" 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <span *ngIf="userForm.get('email')?.errors?.['required'] && userForm.get('email')?.touched" 
+                      class="text-red-500 text-sm">Email is required</span>
+                <span *ngIf="userForm.get('email')?.errors?.['email']" 
+                      class="text-red-500 text-sm">Invalid email format</span>
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Birthday</label>
+                <input type="date" formControlName="birthday" 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <span *ngIf="userForm.get('birthday')?.errors?.['required'] && userForm.get('birthday')?.touched" 
+                      class="text-red-500 text-sm">Birthday is required</span>
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Monthly Income</label>
+                <input type="number" formControlName="monthlyIncome" 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <span *ngIf="userForm.get('monthlyIncome')?.errors?.['required'] && userForm.get('monthlyIncome')?.touched" 
+                      class="text-red-500 text-sm">Monthly income is required</span>
+                <span *ngIf="userForm.get('monthlyIncome')?.errors?.['min']" 
+                      class="text-red-500 text-sm">Monthly income must be positive</span>
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Collateral Available</label>
+                <input type="text" formControlName="collateralAvailable" 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <span *ngIf="userForm.get('collateralAvailable')?.errors?.['required'] && userForm.get('collateralAvailable')?.touched" 
+                      class="text-red-500 text-sm">Collateral is required</span>
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Customer Since</label>
+                <input type="date" formControlName="customerSince" 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+              </div>
+  
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Role</label>
+                <select formControlName="role" 
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                  <option value="">Select a role</option>
+                  <option value="USER">USER</option>
+                  <option value="ADMIN">ADMIN</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
+              <button type="submit" 
+                      [disabled]="!userForm.valid"
+                      class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-50 disabled:cursor-not-allowed sm:col-start-2">
+                Submit
+              </button>
+              <button type="button" 
+                      (click)="onCancel()" 
+                      class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

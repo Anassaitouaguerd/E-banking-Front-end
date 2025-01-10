@@ -1,0 +1,66 @@
+<div class="flex justify-between items-center mb-6">
+    <h2 class="text-white text-lg font-semibold">Latest Transactions</h2>
+    <button (click)="addNew()" 
+            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+      <mat-icon>add</mat-icon>
+      Add New
+    </button>
+  </div>
+
+  <!-- Transaction Modal -->
+  <app-modal-transaction
+    *ngIf="isActive"
+    [isActive]="isActive"
+    (changeEvent)="handleChange($event)">
+  </app-modal-transaction>
+
+  <div class="overflow-x-auto">
+    <table class="w-full">
+      <thead>
+        <tr class="text-gray-400 text-left text-sm">
+          <th class="pb-4">ID</th>
+          <th class="pb-4">Account ID</th>
+          <th class="pb-4">Amount</th>
+          <th class="pb-4">Type</th>
+          <th class="pb-4">Status</th>
+          <th class="pb-4">Created By</th>
+          <th class="pb-4">Created At</th>
+          <th class="pb-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (transaction of transactions; track transaction.id) {
+          <tr class="border-t border-gray-800">
+            <td class="py-4 text-gray-400">{{transaction.id}}</td>
+            <td class="py-4 text-gray-400">{{transaction.accountId}}</td>
+            <td class="py-4 text-gray-400">{{transaction.amount | currency}}</td>
+            <td class="py-4 text-gray-400">{{transaction.transactionType}}</td>
+            <td class="py-4">
+              <span [class]="'flex items-center gap-2 ' + 
+                (transaction.status === 'APPROVED' ? 'text-green-400' : 
+                 transaction.status === 'REJECTED' ? 'text-red-400' : 'text-yellow-400')">
+                <span class="w-2 h-2 rounded-full bg-current"></span>
+                {{transaction.status}}
+              </span>
+            </td>
+            <td class="py-4 text-gray-400">{{transaction.createdBy}}</td>
+            <td class="py-4 text-gray-400">{{transaction.createdAt | date:'short'}}</td>
+            <td class="py-4">
+              <div class="flex items-center gap-2">
+                @if (transaction.status === 'PENDING') {
+                  <button (click)="approveTransaction(transaction.id)" 
+                          class="p-2 hover:bg-gray-800 rounded-md text-green-400">
+                    <mat-icon>check_circle</mat-icon>
+                  </button>
+                  <button (click)="rejectTransaction(transaction.id)" 
+                          class="p-2 hover:bg-gray-800 rounded-md text-red-400">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                }
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>

@@ -1,1 +1,44 @@
-<p>dashboard works!</p>
+<div class="flex h-screen bg-gray-100">
+  <!-- Sidebar -->
+  <app-side-bar (sectionChange)="onSectionChange($event)"></app-side-bar>
+  
+  <!-- Main Content -->
+  <div class="flex-1 overflow-auto p-6">
+    <!-- Modal -->
+    <div id="modal" [class.hidden]="!isActive">
+      <app-modal-form 
+        [isActive]="isActive"
+        (changeEvent)="handleChange($event)">
+      </app-modal-form>
+    </div>
+
+    <!-- Content Sections -->
+    <div [ngSwitch]="currentSection">
+      <!-- Dashboard Section -->
+      <div *ngSwitchCase="'dashboard'">
+        <h2 class="text-2xl font-bold mb-6">Dashboard Overview</h2>
+        <!-- Add dashboard-specific content -->
+      </div>
+
+      <!-- Users Section -->
+      <div *ngSwitchCase="'users'" class="bg-gray-900 p-6 rounded-lg">
+        <!-- Your existing users table -->
+        <div class="overflow-x-auto">
+          <app-user></app-user>
+        </div>
+      </div>
+
+      <!-- Transactions Section -->
+      <div *ngSwitchCase="'transactions'" class="bg-gray-900 p-6 rounded-lg">
+        <h2 class="text-white text-lg font-semibold mb-6">Transactions</h2>
+        <app-transaction></app-transaction>
+      </div>
+
+      <!-- Settings Section -->
+      <div *ngSwitchCase="'settings'" class="bg-gray-900 p-6 rounded-lg">
+        <h2 class="text-white text-lg font-semibold mb-6">Settings</h2>
+        <!-- Add settings-specific content -->
+      </div>
+    </div>
+  </div>
+</div>

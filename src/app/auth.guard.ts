@@ -21,10 +21,9 @@ export const authGuard: CanActivateFn = () => {
 
   try {
     const decodedToken = jwtDecode<DecodedToken>(token);
-    // Access token data
+    
     console.log(decodedToken.role);
     
-    // Check expiration
     const currentTime = Date.now() / 1000;
     if (decodedToken.exp && decodedToken.exp < currentTime) {
       router.navigate(['/home']);
